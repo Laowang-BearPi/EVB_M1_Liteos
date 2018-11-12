@@ -164,7 +164,7 @@ int str_to_hex(const char *bufin, int len, char *bufout)
     return 0;
 }
 
-void HexStrToStr(const  char *source,  char *dest, int sourceLen)
+void HexStrToStr(const  char *source,   char *dest, int sourceLen)
 {
     short i;
     unsigned char highByte, lowByte;
@@ -471,7 +471,7 @@ int nb_decompose_str(const char* str, int *readleft, int *out_sockid)
         return AT_OK;
     }
 
-    HexStrToStr((const unsigned char*)(trans+1), qbuf.addr, (rlen)*2);
+    HexStrToStr((const  char*)(trans+1), (char*)qbuf.addr, (rlen)*2);
     qbuf.len = rlen;
 
     ret = LOS_QueueWriteCopy(at.linkid[link_id].qid, &qbuf, sizeof(qbuf), 0);
@@ -836,7 +836,7 @@ static int32_t nb_handle_data_ind(const char *buf)
     int32_t data_len;
     const char *p1, *p2;
     int link_idx;
-
+		
     p2 = strstr(buf, AT_DATAF_PREFIX);
     if (NULL == p2)
     {
@@ -849,6 +849,7 @@ static int32_t nb_handle_data_ind(const char *buf)
     {
         return AT_FAILED;
     }
+		AT_LOG("+++++++++++++++++++++++\r\n");
     sockid = chartoint(p2);
     data_len = chartoint(p1 + 1);
     link_idx = nb_sock_to_idx(sockid);
@@ -875,42 +876,6 @@ static int32_t nb_handle_data_ind(const char *buf)
 
 }
 
-//static int32_t nb_handle_data_coap(const char *buf)
-//{
-
-//		int readlen = 0;
-//		char tmpbuf[1064] = {0};
-//	  if (NULL == buf )
-//    {
-//        AT_LOG("param invailed!");
-//        return -1;
-//    }
-//		sscanf((char *)buf,"\r\n+NNMI:%d,%s\r\n",&readlen,tmpbuf);
-//		AT_LOG("buff is:%s\n",tmpbuf);
-//		/************nb_handle_data*************/
-//		memset(bc95_net_data.net_nmgr, 0, 30);		
-//    if (readlen > 0)
-//    {  
-//				HexStrToStr(tmpbuf,  bc95_net_data.net_nmgr,readlen);
-//    }
-//				AT_LOG("cmd is:%s\n",bc95_net_data.net_nmgr);
-//			
-///***************************Light LED control*********************************/			
-
-//		if(strcmp(bc95_net_data.net_nmgr,"ON")==0) //开灯
-//			{	
-//					HAL_GPIO_WritePin(Light_GPIO_Port,Light_Pin,GPIO_PIN_RESET);    // 输出低电平
-//			}
-//		if(strcmp(bc95_net_data.net_nmgr,"OFF")==0) //关灯
-//			{	
-//					HAL_GPIO_WritePin(Light_GPIO_Port,Light_Pin,GPIO_PIN_SET);  // 输出高电平
-//			}
-
-///*******************************END**********************************************/
-
-//	return 0;
-
-//}
 
 int32_t nb_cmd_match(const char *buf, char* featurestr,int len)
 {
@@ -920,7 +885,6 @@ int32_t nb_cmd_match(const char *buf, char* featurestr,int len)
     }
 
     nb_handle_data_ind(buf);
-	//	nb_handle_data_coap(buf);
     return AT_FAILED;
 }
 

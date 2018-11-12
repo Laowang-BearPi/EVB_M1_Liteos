@@ -92,7 +92,6 @@ int32_t nb_cmd_data_ioctl(void* arg, int8_t  * buf, int32_t len)
 {
 		int readlen = 0;
 		char tmpbuf[1064] = {0};
-			printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++\r\n");
     if (NULL == buf || len <= 0)
     {
         AT_LOG("param invailed!");
@@ -102,11 +101,9 @@ int32_t nb_cmd_data_ioctl(void* arg, int8_t  * buf, int32_t len)
 				memset(bc95_net_data.net_nmgr, 0, 30);
     if (readlen > 0)
     {  
-				HexStrToStr(tmpbuf,  bc95_net_data.net_nmgr,readlen);
+				HexStrToStr(tmpbuf,  bc95_net_data.net_nmgr,readlen*2);
     }
 				AT_LOG("cmd is:%s\n",bc95_net_data.net_nmgr);
-		
-
 		if(strcmp(bc95_net_data.net_nmgr,"ON")==0) //开灯
 			{	
 					HAL_GPIO_WritePin(Light_GPIO_Port,Light_Pin,GPIO_PIN_RESET);    // 输出低电平
@@ -115,12 +112,18 @@ int32_t nb_cmd_data_ioctl(void* arg, int8_t  * buf, int32_t len)
 			{	
 					HAL_GPIO_WritePin(Light_GPIO_Port,Light_Pin,GPIO_PIN_SET);  // 输出高电平
 			}
-
 /*******************************END**********************************************/
-
 		return 0;
 }
 
+int32_t OC_cmd_match(const char *buf, char* featurestr,int len)
+{
+
+    if(strstr(buf,featurestr) != NULL)
+        return 0;
+    else
+        return -1;
+}
 
 
 VOID data_collection_task(VOID)

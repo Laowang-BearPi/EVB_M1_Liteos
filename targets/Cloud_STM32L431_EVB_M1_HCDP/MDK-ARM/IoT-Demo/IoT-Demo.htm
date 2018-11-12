@@ -3,7 +3,7 @@
 <title>Static Call Graph - [IoT-Demo\IoT-Demo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image IoT-Demo\IoT-Demo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Oct 29 13:55:34 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Nov 12 19:31:06 2018
 <BR><P>
 <H3>Maximum Stack Usage =       1304 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -188,10 +188,10 @@ Global Symbols
 
 <P><STRONG><a name="[d1]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_resp
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;store_resp_buf
-<LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_oob_register
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osQueueBufferOperate
 <LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskSwitchCheck
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;store_resp_buf
+<LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_oob_register
 </UL>
 
 <P><STRONG><a name="[c1]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
@@ -201,9 +201,9 @@ Global Symbols
 <P><STRONG><a name="[10a]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[28]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
+<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTskStackInit
+<LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTskStackInit
 </UL>
 
 <P><STRONG><a name="[10b]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
@@ -216,9 +216,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_cmd_data_ioctl
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_malloc
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_send_payload
-<LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_recv_task
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskMonInit
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapInit
+<LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_recv_task
 </UL>
 
 <P><STRONG><a name="[bb]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
@@ -226,10 +226,6 @@ Global Symbols
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd_in_callback
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_set_cdpserver
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_send_payload
-<LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_write
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_init_oob
-<LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd_multi_suffix
-<LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osQueueInit
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskInit
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osIdleTaskCreate
@@ -237,6 +233,10 @@ Global Symbols
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrInit
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osAtomicBitsetInit
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osAlarmHeapInfo
+<LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_write
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_init_oob
+<LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd_multi_suffix
+<LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd
 </UL>
 
 <P><STRONG><a name="[10d]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
@@ -329,15 +329,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[26]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<BR><BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 
 <P><STRONG><a name="[10e]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[25]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<BR><BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 
 <P><STRONG><a name="[10f]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
@@ -371,8 +371,8 @@ Global Symbols
 <P><STRONG><a name="[2f]"></a>_double_round</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, depilogue.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 
 <P><STRONG><a name="[31]"></a>_double_epilogue</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, depilogue.o(.text))
@@ -458,7 +458,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[63]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32l4xx_hal_gpio.o(i.HAL_GPIO_WritePin))
-<BR><BR>[Called By]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_cmd_data_ioctl
+<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_cmd_data_ioctl
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitAck
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Stop
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Start
@@ -764,7 +765,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 204 + Unknown Stack Size
 <LI>Call Chain = LOS_KernelInit &rArr; osSwTmrInit &rArr; osSwTmrTaskCreate &rArr; LOS_TaskCreate &rArr; LOS_TaskCreateOnly &rArr; LOS_MemAllocAlign &rArr; osHeapAllocAlign &rArr; osHeapAlloc &rArr; osAlarmHeapInfo &rArr; osHeapStatisticsGet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSemInit
+<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSemInit
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osQueueInit
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMuxInit
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTimesliceInit
@@ -774,7 +776,6 @@ Global Symbols
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrInit
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHwiInit
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMemSystemInit
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -825,9 +826,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntRestore
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntLock
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSlabMemInit
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapInit
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMemSystemInit
 </UL>
@@ -863,11 +864,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntRestore
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntLock
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osIntNumGet
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_ErrHandle
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_Schedule
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskWait
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskPriModify
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd_in_callback
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_write
@@ -906,8 +907,8 @@ Global Symbols
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemFree
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemAlloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_struct_init
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrInit
+<BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrInit
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_struct_init
 </UL>
 
 <P><STRONG><a name="[90]"></a>LOS_QueueDelete</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, los_queue.o(i.LOS_QueueDelete))
@@ -930,8 +931,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osQueueOperate
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osQueueReadParameterCheck
 </UL>
-<BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_recv_task
-<LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrTask
+<BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrTask
+<LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_recv_task
 </UL>
 
 <P><STRONG><a name="[95]"></a>LOS_QueueWriteCopy</STRONG> (Thumb, 38 bytes, Stack size 40 bytes, los_queue.o(i.LOS_QueueWriteCopy))
@@ -995,10 +996,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntRestore
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntLock
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osIntNumGet
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_ErrHandle
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_Schedule
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskWait
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_write
 <LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd_multi_suffix
@@ -1021,9 +1022,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32 + Unknown Stack Size
 <LI>Call Chain = LOS_Start &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTickStart
+<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTickStart
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_StartToRun
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1041,9 +1042,9 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;creat_data_report_task
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;creat_data_collection_task
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_at_recv_task
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osIdleTaskCreate
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrTaskCreate
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_at_recv_task
 </UL>
 
 <P><STRONG><a name="[a3]"></a>LOS_TaskCreateOnly</STRONG> (Thumb, 322 bytes, Stack size 40 bytes, los_task.o(i.LOS_TaskCreateOnly))
@@ -1078,10 +1079,10 @@ Global Symbols
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Convert_BH1750
 <LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_report_task
 <LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_collection_task
-<LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_init
-<LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_deinit
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_BH1750
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cmd_Write_BH1750
+<LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_init
+<LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_deinit
 </UL>
 
 <P><STRONG><a name="[ac]"></a>LOS_TaskDelete</STRONG> (Thumb, 300 bytes, Stack size 32 bytes, los_task.o(i.LOS_TaskDelete))
@@ -1099,8 +1100,8 @@ Global Symbols
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_ListDelete
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_ListAdd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_deinit
-<LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskEntry
+<BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskEntry
+<LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_deinit
 </UL>
 
 <P><STRONG><a name="[ae]"></a>LOS_TaskNameGet</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, los_task.o(i.LOS_TaskNameGet))
@@ -1134,12 +1135,13 @@ Global Symbols
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrTask
 </UL>
 
-<P><STRONG><a name="[5d]"></a>MX_GPIO_Init</STRONG> (Thumb, 110 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[5d]"></a>MX_GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 56 bytes, gpio.o(i.MX_GPIO_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardWare_Init
 </UL>
@@ -1206,10 +1208,10 @@ Global Symbols
 <P><STRONG><a name="[53]"></a>UART_SetConfig</STRONG> (Thumb, 554 bytes, Stack size 24 bytes, stm32l4xx_hal_uart.o(i.UART_SetConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = UART_SetConfig &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
+<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
@@ -1254,6 +1256,12 @@ Global Symbols
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd_in_callback
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_send_payload
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_decompose_str
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osQueueBufferOperate
+<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskSwitchCheck
+<LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHwiDefaultHandler
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemInit
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapFree
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapAlloc
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_write
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_struct_init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_struct_deinit
@@ -1262,12 +1270,6 @@ Global Symbols
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_deinit
 <LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd_multi_suffix
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_rm_timeout_nodes
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osQueueBufferOperate
-<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTaskSwitchCheck
-<LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHwiDefaultHandler
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemInit
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapFree
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapAlloc
 </UL>
 
 <P><STRONG><a name="[b7]"></a>__0snprintf$8</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, printf8.o(i.__0snprintf$8), UNUSED)
@@ -1324,9 +1326,9 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxPost
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxPend
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_malloc
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_listener_list_add
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_cmd_rcv_data
 </UL>
@@ -1341,11 +1343,11 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_SemPend
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxPost
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxPend
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_listner_list_del
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_listener_list_add
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_cmd
 </UL>
@@ -1360,10 +1362,10 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_get_time
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_TaskDelay
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_TaskDelete
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_TaskNameGet
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_struct_deinit
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_init_oob
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_TaskNameGet
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> at_main.o(.data)
 </UL>
@@ -1415,11 +1417,11 @@ Global Symbols
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_usart_deinit
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_get_time
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_TaskDelay
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_at_recv_task
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_struct_init
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_struct_deinit
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_init_oob
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> at_main.o(.data)
 </UL>
@@ -1487,12 +1489,12 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxPost
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxPend
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_QueueReadCopy
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cloud_cmd_matching
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_rm_timeout_nodes
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_handle_resp
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_get_queue_wait_time
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> at_main.o(i.create_at_recv_task)
 </UL>
@@ -1507,8 +1509,8 @@ Global Symbols
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxDelete
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_free
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_QueueDelete
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_listner_list_destroy
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_listner_list_destroy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_init
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_deinit
@@ -1569,11 +1571,11 @@ Global Symbols
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_SemPend
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxPost
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MuxPend
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_listner_list_del
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_listener_list_add
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> at_main.o(.data)
 </UL>
@@ -1704,17 +1706,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;los_nb_init
 </UL>
 
-<P><STRONG><a name="[1b]"></a>nb_cmd_data_ioctl</STRONG> (Thumb, 170 bytes, Stack size 1088 bytes, main.o(i.nb_cmd_data_ioctl))
+<P><STRONG><a name="[1b]"></a>nb_cmd_data_ioctl</STRONG> (Thumb, 166 bytes, Stack size 1088 bytes, main.o(i.nb_cmd_data_ioctl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1304<LI>Call Chain = nb_cmd_data_ioctl &rArr; __0sscanf &rArr; __vfscanf_char &rArr; __vfscanf &rArr; _scanf_string
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_get_time
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HexStrToStr
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sscanf
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-<LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sscanf
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.data_report_task)
 </UL>
@@ -1737,10 +1739,10 @@ Global Symbols
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chartoint
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_malloc
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_free
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sscanf
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_handle_sock_data
 </UL>
@@ -1778,13 +1780,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_get_time
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;str_to_hex
+<LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sscanf
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-<LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sscanf
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;los_nb_report
 </UL>
@@ -1792,9 +1794,9 @@ Global Symbols
 <P><STRONG><a name="[dd]"></a>nb_send_psk</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, bc95.o(i.nb_send_psk))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = nb_send_psk &rArr; __2snprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;los_nb_init
 </UL>
@@ -1802,9 +1804,9 @@ Global Symbols
 <P><STRONG><a name="[e3]"></a>nb_set_cdpserver</STRONG> (Thumb, 216 bytes, Stack size 272 bytes, bc95.o(i.nb_set_cdpserver))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = nb_set_cdpserver &rArr; __2snprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;los_nb_init
 </UL>
@@ -1820,8 +1822,8 @@ Global Symbols
 <P><STRONG><a name="[ee]"></a>osAlarmHeapInfo</STRONG> (Thumb, 26 bytes, Stack size 32 bytes, los_heap.o(i.osAlarmHeapInfo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = osAlarmHeapInfo &rArr; osHeapStatisticsGet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapStatisticsGet
+<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapStatisticsGet
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapAlloc
 </UL>
@@ -1854,9 +1856,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntRestore
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntLock
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapPrvGetNext
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osAlarmHeapInfo
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemAlloc
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSlabAllocatorNew
@@ -1878,8 +1880,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntRestore
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntLock
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapPrvGetNext
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osHeapPrvGetNext
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemFree
 </UL>
@@ -1908,9 +1910,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
-<BR>[Address Reference Count : 3]<UL><LI> los_hwi.o(.data.vector)
-<LI> los_hwi.o(i.LOS_HwiCreate)
+<BR>[Address Reference Count : 3]<UL><LI> los_hwi.o(i.LOS_HwiCreate)
 <LI> los_hwi.o(i.osHwiInit)
+<LI> los_hwi.o(.data.vector)
 </UL>
 <P><STRONG><a name="[6e]"></a>osHwiInit</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, los_hwi.o(i.osHwiInit))
 <BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_KernelInit
@@ -1949,8 +1951,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntRestore
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_IntLock
 </UL>
-<BR>[Address Reference Count : 2]<UL><LI> los_hw_tick.o(i.osTickStart)
-<LI> los_hwi.o(i.LOS_HwiCreate)
+<BR>[Address Reference Count : 2]<UL><LI> los_hwi.o(i.LOS_HwiCreate)
+<LI> los_hw_tick.o(i.osTickStart)
 </UL>
 <P><STRONG><a name="[6d]"></a>osMemSystemInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, los_memory.o(i.osMemSystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 172 + Unknown Stack Size
@@ -2012,8 +2014,8 @@ Global Symbols
 <LI>Call Chain = osQueueInit &rArr; LOS_MemAlloc &rArr; osHeapAlloc &rArr; osAlarmHeapInfo &rArr; osHeapStatisticsGet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemAlloc
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_ListAdd
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_KernelInit
 </UL>
@@ -2139,8 +2141,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemAlloc
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_QueueCreate
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSwTmrTaskCreate
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_KernelInit
 </UL>
@@ -2205,8 +2207,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osPriqueueInit
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_MemAlloc
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_ListTailInsert
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOS_KernelInit
 </UL>
@@ -2243,8 +2245,8 @@ Global Symbols
 <P><STRONG><a name="[1e]"></a>osTaskSwitchCheck</STRONG> (Thumb, 170 bytes, Stack size 8 bytes, los_task.o(i.osTaskSwitchCheck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = osTaskSwitchCheck &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> los_task.o(i.osTaskMonInit)
 </UL>
@@ -2322,8 +2324,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = read_resp &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_get_time
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_recv_task
 </UL>
@@ -2368,7 +2370,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_handle_data_ind
 </UL>
 
-<P><STRONG><a name="[e6]"></a>nb_handle_data_ind</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, bc95.o(i.nb_handle_data_ind))
+<P><STRONG><a name="[e6]"></a>nb_handle_data_ind</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, bc95.o(i.nb_handle_data_ind))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220 + Unknown Stack Size
 <LI>Call Chain = nb_handle_data_ind &rArr; nb_cmd_rcv_data &rArr; at_cmd_in_callback &rArr; at_malloc &rArr; LOS_MemAlloc &rArr; osHeapAlloc &rArr; osAlarmHeapInfo &rArr; osHeapStatisticsGet
 </UL>
@@ -2376,8 +2378,8 @@ Local Symbols
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_cmd_rcv_data
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_get_time
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chartoint
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nb_cmd_match
 </UL>
@@ -2450,8 +2452,8 @@ Local Symbols
 <P><STRONG><a name="[f3]"></a>osQueueBufferOperate</STRONG> (Thumb, 168 bytes, Stack size 24 bytes, los_queue.o(i.osQueueBufferOperate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = osQueueBufferOperate &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osQueueOperate
 </UL>
@@ -2557,8 +2559,8 @@ Local Symbols
 <LI>Call Chain = at_rm_timeout_nodes &rArr; at_rm_node &rArr; at_free &rArr; LOS_MemFree &rArr; osHeapFree &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_get_time
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_rm_node
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_rm_node
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;at_recv_task
 </UL>
