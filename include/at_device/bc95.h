@@ -46,7 +46,7 @@
 #define AT_CMD_PREFIX      "\r\n+NNMI:"
 
 #define AT_MODU_NAME        "nb_neul95"
-#define AT_USART_PORT       2
+#define AT_USART_PORT       3
 #define AT_BUARDRATE        9600
 #define AT_CMD_TIMEOUT      10000    //ms
 #define AT_MAX_LINK_NUM     4
@@ -70,7 +70,6 @@ typedef struct _socket_info_t
 }socket_info;//struct to save socket info
 
 int str_to_hex(const char *bufin, int len, char *bufout);
-void HexStrToStr(const  char *source,  char *dest, int sourceLen);
 int32_t nb_set_cdpserver(char* host, char* port);
 int32_t nb_hw_detect(void);
 int32_t nb_get_netstat(void);

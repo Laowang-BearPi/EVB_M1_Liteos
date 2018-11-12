@@ -1,0 +1,12 @@
+iot-demo\sota.o: ..\..\..\components\ota\sota\sota.c
+iot-demo\sota.o: ..\..\..\include\sota/sota.h
+iot-demo\sota.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+iot-demo\sota.o: ..\..\..\include\ota/ota_api.h
+iot-demo\sota.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+iot-demo\sota.o: ..\..\..\components\ota\sota\sota_hal.h
+iot-demo\sota.o: ..\..\..\components\ota\flag_operate\flag_manager.h
+iot-demo\sota.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+iot-demo\sota.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+iot-demo\sota.o: ..\..\..\include\ota/package.h
+iot-demo\sota.o: ..\..\..\include\ota/package.h
+iot-demo\sota.o: ..\..\..\components\ota\flag_operate\upgrade_flag.h

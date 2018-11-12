@@ -1,0 +1,15 @@
+iot-demo\package_writer.o: ..\..\..\components\ota\package\package_writer.c
+iot-demo\package_writer.o: ..\..\..\components\ota\package\package_writer.h
+iot-demo\package_writer.o: ..\..\..\include\ota/package.h
+iot-demo\package_writer.o: ..\..\..\include\ota/package.h
+iot-demo\package_writer.o: ..\..\..\include\ota/ota_api.h
+iot-demo\package_writer.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+iot-demo\package_writer.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+iot-demo\package_writer.o: ..\..\..\components\ota\package\package_head.h
+iot-demo\package_writer.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+iot-demo\package_writer.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+iot-demo\package_writer.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+iot-demo\package_writer.o: ..\..\..\include\osdepends/atiny_osdep.h
+iot-demo\package_writer.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+iot-demo\package_writer.o: ..\..\..\components\ota\package\package_checksum.h
+iot-demo\package_writer.o: ..\..\..\components\ota\flag_operate\upgrade_flag.h

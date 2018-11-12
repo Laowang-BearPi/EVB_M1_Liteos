@@ -513,7 +513,7 @@ void at_recv_task()
 
         LOS_MuxPend(at.cmd_mux, LOS_WAIT_FOREVER);
         at_rm_timeout_nodes();
-				LOS_MuxPost(at.cmd_mux);
+		LOS_MuxPost(at.cmd_mux);
 
         if (at.step_callback)
         {
@@ -848,7 +848,7 @@ void at_deinit(void)
 int32_t at_oob_register(char *featurestr, int cmdlen, oob_callback callback, oob_cmd_match cmd_match)
 {
     oob_t *oob;
-    if(featurestr == NULL || cmd_match == NULL ||at_oob.oob_num == OOB_MAX_NUM || cmdlen >= OOB_CMD_LEN - 1)
+    if(featurestr == NULL || cmd_match == NULL || at_oob.oob_num == OOB_MAX_NUM || cmdlen >= OOB_CMD_LEN - 1)
         return -1;
     oob = &(at_oob.oob[at_oob.oob_num++]);
     memcpy(oob->featurestr, featurestr, cmdlen);

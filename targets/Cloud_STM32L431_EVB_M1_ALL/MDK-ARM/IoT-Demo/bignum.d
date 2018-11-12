@@ -1,0 +1,13 @@
+iot-demo\bignum.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\library\bignum.c
+iot-demo\bignum.o: ..\..\..\components\security\mbedtls\mbedtls_port\los_mbedtls_config.h
+iot-demo\bignum.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\include\mbedtls/check_config.h
+iot-demo\bignum.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+iot-demo\bignum.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\include\mbedtls/bignum.h
+iot-demo\bignum.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+iot-demo\bignum.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+iot-demo\bignum.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\include\mbedtls/bn_mul.h
+iot-demo\bignum.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+iot-demo\bignum.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\include\mbedtls/platform.h
+iot-demo\bignum.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+iot-demo\bignum.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+iot-demo\bignum.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
