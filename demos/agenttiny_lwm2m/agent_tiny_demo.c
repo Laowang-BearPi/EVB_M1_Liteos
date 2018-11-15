@@ -120,7 +120,7 @@ void agent_tiny_entry(void)
     atiny_device_info_t *device_info = &g_device_info;
 
 #ifdef CONFIG_FEATURE_FOTA
-    hal_init_ota();
+    //hal_init_ota();
 #endif
 
 #ifdef WITH_DTLS
@@ -189,16 +189,6 @@ void agent_tiny_entry(void)
     (void)atiny_bind(device_info, g_phandle);
 }
 
-#if defined(WITH_AT_FRAMEWORK) && (defined(USE_SIM900A))
-void demo_agenttiny_with_gprs(void)
-{
-    extern void agent_tiny_entry();
-    extern at_adaptor_api at_interface;
-    printf("\r\n=============agent_tiny_entry  USE_SIM900A============================\n");
-    at_api_register(&at_interface);
-    agent_tiny_entry();
-}
-#endif
 
 #if defined(WITH_AT_FRAMEWORK) && (defined(USE_ESP8266))
 void demo_agenttiny_with_wifi(void)
@@ -211,17 +201,7 @@ void demo_agenttiny_with_wifi(void)
 }
 #endif
 
-#if defined(WITH_LINUX) || defined(WITH_LWIP)
-void demo_agenttiny_with_eth(void)
-{
-    #if defined(WITH_LINUX) || defined(WITH_LWIP)
-    extern void agent_tiny_entry();
-    hieth_hw_init();
-    net_init();
-    agent_tiny_entry();
-    #endif
-}
-#endif
+
 extern void demo_agenttiny_with_nbiot(void);
 UINT32 creat_agenttiny_task()
 {
@@ -230,12 +210,8 @@ UINT32 creat_agenttiny_task()
 
     task_init_param.usTaskPrio = 0;
     task_init_param.pcName = "agenttiny_task";
-    #if defined(WITH_AT_FRAMEWORK) && defined (USE_SIM900A)
-    task_init_param.pfnTaskEntry = (TSK_ENTRY_FUNC)demo_agenttiny_with_gprs;
-	#elif defined(WITH_AT_FRAMEWORK) && defined (USE_ESP8266)
+		#if defined(WITH_AT_FRAMEWORK) && defined (USE_ESP8266)
     task_init_param.pfnTaskEntry = (TSK_ENTRY_FUNC)demo_agenttiny_with_wifi;
-    #elif defined(WITH_LINUX) && defined (WITH_LWIP)
-    task_init_param.pfnTaskEntry = (TSK_ENTRY_FUNC)demo_agenttiny_with_eth;
     #elif defined(WITH_AT_FRAMEWORK) && (defined(USE_NB_NEUL95))
 	task_init_param.pfnTaskEntry = (TSK_ENTRY_FUNC)demo_agenttiny_with_nbiot;	
     #endif

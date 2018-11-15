@@ -120,18 +120,25 @@ void SystemClock_Config(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-    /**Configure the Systick interrupt time 
-    */
-  //HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
-
-    /**Configure the Systick 
-    */
-  //HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
-
-  /* SysTick_IRQn interrupt configuration */
-  //HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+	SystemCoreClockUpdate();
+}
+/*
+ * atiny_adapter user interface
+ */
+void atiny_usleep(unsigned long usec)
+{
+    delayus((uint32_t)usec);
 }
 
+int atiny_random(void *output, size_t len)
+{
+    return hal_rng_generate_buffer(output, len);
+}
+
+void atiny_reboot(void)
+{
+    HAL_NVIC_SystemReset();
+}
 
 #ifdef  USE_FULL_ASSERT
 /**

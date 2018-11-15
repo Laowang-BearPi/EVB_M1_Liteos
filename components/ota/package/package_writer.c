@@ -82,7 +82,7 @@ static int pack_write_data(pack_writer_s *writer, uint32_t offset, const uint8_t
 
     if (0 == offset)
     {
-        (void)flag_enable_hwpatch(buffer, len);
+//        (void)flag_enable_hwpatch(buffer, len);
     }
     return ret;
 }

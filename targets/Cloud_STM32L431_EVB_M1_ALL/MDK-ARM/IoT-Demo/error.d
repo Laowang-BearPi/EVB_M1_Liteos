@@ -1,9 +1,0 @@
-iot-demo\error.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\library\error.c
-iot-demo\error.o: ..\..\..\components\security\mbedtls\mbedtls_port\los_mbedtls_config.h
-iot-demo\error.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\include\mbedtls/check_config.h
-iot-demo\error.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
-iot-demo\error.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\include\mbedtls/platform.h
-iot-demo\error.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-iot-demo\error.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-iot-demo\error.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
-iot-demo\error.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

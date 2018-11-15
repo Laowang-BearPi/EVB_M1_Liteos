@@ -105,7 +105,6 @@ extern msg_sys_type bc95_net_data;
 
 typedef struct
 {
-	uint8_t messageId;
 
   char Lux[5];
 }msg_for_BH1750;

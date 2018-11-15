@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32L431xx,MBEDTLS_CONFIG_FILE=&lt;los_mbedtls_config.h&gt;,WITH_LWM2M,LWM2M_LITTLE_ENDIAN,LWM2M_CLIENT_MODE,NDEBUG,USE_NB_NEUL95,WITH_DTLS,WITH_AT_FRAMEWORK,LWM2M_WITH_LOGS,CONFIG_FEATURE_FOTA</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;..\..\..\include\osdepends\liteos;..\OS_CONFIG;../Drivers/STM32L4xx_HAL_Driver/Inc;../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy;..\..\..\components\connectivity\lwm2m\core\er-coap-13;..\..\..\components\connectivity\lwm2m\core;..\..\..\components\connectivity\lwm2m\examples\shared;..\..\..\components\connectivity\agent_tiny\atiny_lwm2m;..\..\..\components\ota\flag_operate;..\..\..\components\ota\utility;..\..\..\components\net\at_device\nb_bc95;..\..\..\components\ota\package;..\..\..\components\security\mbedtls\mbedtls-2.6.0\include;..\..\..\components\security\mbedtls\mbedtls_port;..\..\..\include;..\Hardware\BH1750;..\Hardware\OLED;..\Hardware\RNG;..\..\..\demos;..\..\..\kernel\include;..\..\..\kernel\base\include;..\..\..\kernel\extended\include;..\..\..\arch\arm\arm-m\include;..\..\..\arch\arm\common\cmsis;..\..\..\components\ota\package\opt</IncludePath>
+              <IncludePath>../Inc;..\..\..\include\osdepends\liteos;..\OS_CONFIG;../Drivers/STM32L4xx_HAL_Driver/Inc;../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy;..\..\..\components\connectivity\lwm2m\core\er-coap-13;..\..\..\components\connectivity\lwm2m\core;..\..\..\components\connectivity\lwm2m\examples\shared;..\..\..\components\connectivity\agent_tiny\atiny_lwm2m;..\..\..\components\ota\flag_operate;..\..\..\components\ota\utility;..\..\..\components\net\at_device\nb_bc95;..\..\..\components\ota\package;..\..\..\components\security\mbedtls\mbedtls-2.6.0\include;..\..\..\components\security\mbedtls\mbedtls_port;..\..\..\include;..\Hardware\BH1750;..\Hardware\OLED;..\Hardware\DHT11;..\Hardware\GPS;..\Hardware\OLED;..\Hardware\Inc;..\..\..\demos;..\..\..\kernel\include;..\..\..\kernel\base\include;..\..\..\kernel\extended\include;..\..\..\arch\arm\arm-m\include;..\..\..\arch\arm\common\cmsis;..\..\..\components\ota\package\opt</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -444,6 +444,11 @@
               <FileName>bc95.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\net\at_device\nb_bc95\bc95.c</FilePath>
+            </File>
+            <File>
+              <FileName>esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\at_device\wifi_esp8266\esp8266.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -685,6 +690,11 @@
               <FileType>1</FileType>
               <FilePath>..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rng.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32l4xx_hal_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_spi.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -699,6 +709,26 @@
               <FileName>oled.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Hardware\OLED\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Src\hal_iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_rng.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Src\hal_rng.c</FilePath>
+            </File>
+            <File>
+              <FileName>DHT11_BUS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\DHT11\DHT11_BUS.c</FilePath>
+            </File>
+            <File>
+              <FileName>gps.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\GPS\gps.c</FilePath>
             </File>
           </Files>
         </Group>

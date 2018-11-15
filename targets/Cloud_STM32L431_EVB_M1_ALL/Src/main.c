@@ -180,9 +180,9 @@ VOID data_report_task(VOID)
     printf("\r\nSTEP1: Init NB Module( NB Init )");
     printf("\r\n=====================================================\r\n");
 #if AT_DTLS
-    los_nb_init((const int8_t*)"139.159.140.34",(const int8_t*)"5684",&sec);
+    los_nb_init((const int8_t*)"180.101.147.115",(const int8_t*)"5684",&sec);
 #else
-    los_nb_init((const int8_t*)"139.159.140.34",(const int8_t*)"5683",NULL);
+    los_nb_init((const int8_t*)"180.101.147.115",(const int8_t*)"5683",NULL);
 #endif
     printf("\r\n=====================================================");
     printf("\r\nSTEP2: Register Command( NB Notify )");
@@ -207,6 +207,22 @@ VOID data_report_task(VOID)
 		return;
 	}
 }
+
+void demo_agenttiny_with_nbiot(void)
+{
+#if defined(WITH_AT_FRAMEWORK) && (defined(USE_NB_NEUL95))
+    extern void agent_tiny_entry();
+    extern at_adaptor_api at_interface;
+    printf("\r\n=============agent_tiny_entry============================\n");
+    los_nb_init((const int8_t *)"172.25.233.98",(const int8_t *)"5600",NULL);
+    los_nb_notify("\r\n+NSONMI:",strlen("\r\n+NSONMI:"),NULL,nb_cmd_match);
+    at_api_register(&at_interface);
+    agent_tiny_entry();
+#else
+    printf("Please checkout if open WITH_AT_FRAMEWORK and USE_NB_NEUL95\n");
+#endif
+}
+
 UINT32 creat_data_report_task()
 {
     UINT32 uwRet = LOS_OK;

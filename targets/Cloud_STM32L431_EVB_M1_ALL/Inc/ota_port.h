@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------
- * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+ * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -32,55 +32,28 @@
  * applicable export control laws and regulations.
  *---------------------------------------------------------------------------*/
 
-#ifndef __NB_NEUL_BC95_H__
-#define __NB_NEUL_BC95_H__
+/**@defgroup atiny_adapter Agenttiny Adapter
+ * @ingroup agent
+ */
 
-#include "at_frame/at_main.h"
+#ifndef OTA_PORT_H
+#define OTA_PORT_H
+#include "ota/package.h"
+#include "ota/ota_api.h"
 
-//#define CLOUD_IP  "218.4.33.71,5683"
-#define AT_NB_LINE_END 			"\r\n"
 
-#define AT_NB_reboot    		"AT+NRB\r"
-#define AT_NB_hw_detect    		"AT+CFUN?\r"
-#define AT_NB_get_auto_connect    		"AT+NCONFIG?\r"
-#define AT_CMD_PREFIX      "\r\n+NNMI:"
 
-#define AT_MODU_NAME        "nb_neul95"
-#define AT_USART_PORT       2
-#define AT_BUARDRATE        9600
-#define AT_CMD_TIMEOUT      10000    //ms
-#define AT_MAX_LINK_NUM     4
-#if defined STM32F103xE
-#define MAX_AT_USERDATA_LEN (1024*2)
-#else
-#define MAX_AT_USERDATA_LEN (1024*5)
+#if defined(__cplusplus)
+extern "C" {
 #endif
 
-#define AT_MAX_PAYLOADLEN     512
+void hal_init_ota(void);
+void hal_get_ota_opt(ota_opt_s *opt);
 
-#define IP_LEN 16
-typedef struct _socket_info_t
-{
-    int socket;
-    short localport;
-    char localip[IP_LEN];
-    short remoteport;
-    char remoteip[IP_LEN];
-    bool used_flag;
-}socket_info;//struct to save socket info
-
-int str_to_hex(const char *bufin, int len, char *bufout);
-int32_t nb_set_cdpserver(char* host, char* port);
-int32_t nb_hw_detect(void);
-int32_t nb_get_netstat(void);
-int nb_query_ip(void);
-int32_t nb_send_payload(const char* buf, int len);
-int32_t nb_check_csq(void);
-int32_t nb_send_psk(char* pskid, char* psk);
-int32_t nb_set_no_encrypt(void);
-int32_t nb_reboot(void);
-int32_t nb_recv_timeout(int32_t id , uint8_t  *buf, uint32_t len,char* ipaddr,int* port, int32_t timeout);
-int32_t nb_cmd_match(const char *buf, char* featurestr,int len);
-void nb_step(void);
-void nb_reattach(void);
+#if defined(__cplusplus)
+}
 #endif
+
+#endif //OTA_PORT_H
+
+

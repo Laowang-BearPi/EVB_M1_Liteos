@@ -50,7 +50,7 @@
 
 UINT32 g_TskHandle;
 msg_sys_type bc95_net_data;
-msg_for_BH1750      BH1750_send={02};
+msg_for_BH1750      BH1750_send;
 char messageid[4];
 char mid[4];
 char value[6];
@@ -82,10 +82,19 @@ VOID HardWare_Init(VOID)
 	
 }
 
+
 void user_hw_init(void)
 {
-
-
+	char *str = "     EVB_M1";
+	OLED_Init();
+	OLED_Clear();
+	OLED_ShowCHinese(0+9,0,0);
+	OLED_ShowCHinese(18+9,0,1);
+	OLED_ShowCHinese(36+9,0,2);
+	OLED_ShowCHinese(54+9,0,3);
+	OLED_ShowCHinese(72+9,0,4);
+	OLED_ShowCHinese(90+9,0,5);
+	OLED_ShowString(0,2,(uint8_t*)str,16);
 }
 
 int32_t nb_cmd_data_ioctl(void* arg, int8_t  * buf, int32_t len)
@@ -131,6 +140,7 @@ VOID data_collection_task(VOID)
 	UINT32 uwRet = LOS_OK;
 	
 	short int Lux;   
+	user_hw_init();
 	Init_BH1750();									//初始化传感器
 	
 	while (1)

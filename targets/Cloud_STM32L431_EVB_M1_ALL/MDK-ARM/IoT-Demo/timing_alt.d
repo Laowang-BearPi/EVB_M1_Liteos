@@ -1,9 +1,0 @@
-iot-demo\timing_alt.o: ..\..\..\components\security\mbedtls\mbedtls_port\timing_alt.c
-iot-demo\timing_alt.o: ..\..\..\components\security\mbedtls\mbedtls_port\los_mbedtls_config.h
-iot-demo\timing_alt.o: ..\..\..\components\security\mbedtls\mbedtls-2.6.0\include\mbedtls/check_config.h
-iot-demo\timing_alt.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
-iot-demo\timing_alt.o: ..\..\..\components\security\mbedtls\mbedtls_port\timing_alt.h
-iot-demo\timing_alt.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-iot-demo\timing_alt.o: ..\..\..\include\osdepends/atiny_osdep.h
-iot-demo\timing_alt.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-iot-demo\timing_alt.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
