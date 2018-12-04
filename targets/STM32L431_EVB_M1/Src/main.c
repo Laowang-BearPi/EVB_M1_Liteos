@@ -114,9 +114,9 @@ VOID main_task(VOID)
     printf("\r\nSTEP1: Init NB Module( NB Init )");
     printf("\r\n=====================================================\r\n");
 #if AT_DTLS
-    los_nb_init((const int8_t*)"180.101.147.115",(const int8_t*)"5684",&sec);
+    los_nb_init((const int8_t*)"139.159.140.34",(const int8_t*)"5684",&sec);
 #else
-    los_nb_init((const int8_t*)"180.101.147.115",(const int8_t*)"5683",NULL);   //IP需要改成与自己平台对应的
+    los_nb_init((const int8_t*)"139.159.140.34",(const int8_t*)"5683",NULL);   //IP需要改成与自己平台对应的
 #endif
     printf("\r\n=====================================================");
     printf("\r\nSTEP2: Register Command( NB Notify )");

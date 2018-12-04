@@ -62,7 +62,7 @@ int flag_set_info(upgrade_type_e upgrade_type, uint32_t image_size);
 void flag_get_info(upgrade_type_e *upgrade_type, uint32_t *image_size,
                    uint32_t *old_image_size, upgrade_state_e *upgrade_state);
 
-int flag_upgrade_set_result(upgrade_state_e state);
+int flag_upgrade_set_result(upgrade_state_e state, uint32_t image_size);
 
 int flag_upgrade_get_result(upgrade_state_e *state);
 
@@ -77,4 +77,3 @@ int flag_enable_hwpatch(const uint8_t *patch_head, int32_t patch_len);
 #endif
 
 #endif /* UPGRADE_FLAG_H */
-

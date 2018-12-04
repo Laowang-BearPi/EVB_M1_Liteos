@@ -64,4 +64,3 @@ int flag_write(flag_type_e flag_type, const void *buf, int32_t len);
 #endif
 
 #endif /* FLAG_MANAGER_H */
-

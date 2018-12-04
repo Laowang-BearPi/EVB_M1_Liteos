@@ -32,11 +32,11 @@
  * applicable export control laws and regulations.
  *---------------------------------------------------------------------------*/
 
-#if defined(WITH_AT_FRAMEWORK) && defined(USE_SIM900A)
+#if defined(WITH_AT_FRAMEWORK)
 #include "sim900a.h"
 
 extern at_task at;
-at_adaptor_api at_interface;
+at_adaptor_api sim900a_interface;
 char prefix_name[15];
 
 int32_t sim900a_echo_off(void)
@@ -275,9 +275,27 @@ int32_t sim900a_data_handler(void *arg, int8_t *buf, int32_t len)
 END:
     return ret;
 }
+
+int32_t sim900a_cmd_match(const char *buf, char* featurestr,int len)
+{
+    return memcmp(buf,featurestr,len);
+}
+
 int32_t sim900a_ini()
 {
-    at.init();
+    at_config at_user_conf =
+    {
+        .name = AT_MODU_NAME,
+        .usart_port = AT_USART_PORT,
+        .buardrate = AT_BUARDRATE,
+        .linkid_num = AT_MAX_LINK_NUM,
+        .user_buf_len = MAX_AT_USERDATA_LEN,
+        .cmd_begin = AT_CMD_BEGIN,
+        .line_end = AT_LINE_END,
+        .mux_mode = 1, //support multi connection mode
+        .timeout = AT_CMD_TIMEOUT,   //  ms
+    };
+    at.init(&at_user_conf);
     //single and multi connect prefix is different
     if (AT_MUXMODE_MULTI == at.mux_mode)
     {
@@ -287,7 +305,7 @@ int32_t sim900a_ini()
     {
         memcpy(prefix_name, AT_DATAF_PREFIX, sizeof(AT_DATAF_PREFIX));
     }
-    at.oob_register((char *)prefix_name, strlen((char *)prefix_name), sim900a_data_handler,memcmp);
+    at.oob_register((char *)prefix_name, strlen((char *)prefix_name), sim900a_data_handler,sim900a_cmd_match);
     sim900a_echo_off();
     sim900a_check();
     sim900a_reset();
@@ -318,20 +336,9 @@ int32_t sim900a_deinit(void)
     return AT_OK;
 }
 
-at_config at_user_conf =
-{
-    .name = AT_MODU_NAME,
-    .usart_port = AT_USART_PORT,
-    .buardrate = AT_BUARDRATE,
-    .linkid_num = AT_MAX_LINK_NUM,
-    .user_buf_len = MAX_AT_USERDATA_LEN,
-    .cmd_begin = AT_CMD_BEGIN,
-    .line_end = AT_LINE_END,
-    .mux_mode = 1, //support multi connection mode
-    .timeout = AT_CMD_TIMEOUT,   //  ms
-};
 
-at_adaptor_api at_interface =
+
+at_adaptor_api sim900a_interface =
 {
     .init = sim900a_ini,
     .connect = sim900a_connect, /*TCP or UDP connect*/

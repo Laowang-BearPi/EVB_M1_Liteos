@@ -46,7 +46,7 @@ VOID data_collection_task(VOID)
 	
 	short int Lux;   
 	Init_BH1750();									//初始化传感器
-	
+	OLED_ShowString(30,2,"Lux:",16);
 	while (1)
   {
 
@@ -55,6 +55,8 @@ VOID data_collection_task(VOID)
 	  printf("\r\n******************************BH1750 Value is  %d\r\n",Lux);
 		
 		sprintf(BH1750_send.Lux, "%5d", Lux);	  //将传感器数据存入发送数据的结构体中
+		
+		OLED_ShowString(60,2,(uint8_t*)BH1750_send.Lux,16);
 
 		uwRet=LOS_TaskDelay(1000);
 		if(uwRet !=LOS_OK)
