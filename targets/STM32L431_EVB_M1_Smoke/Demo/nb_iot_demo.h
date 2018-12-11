@@ -40,6 +40,39 @@
 #include "los_typedef.h"
 #include "los_sys.h"
 
+/*temperature and humidity message*/
+typedef struct
+{
+	char temp[4];
+	char hum[4];	
+}msg_for_DHT11;
+extern msg_for_DHT11 DHT11_send;
+
+/***********smoke message********/
+typedef struct
+{
+	char index;
+	unsigned char CSQ;
+	char Value[4];
+	char MaxValue[4];		
+}msg_for_SMOKE;
+extern msg_for_SMOKE SMOKE_send;
+
+/**********GPS message***********/
+typedef struct
+{
+	char Latitude[8];
+	char Longitude[9];	
+}msg_for_GPS;
+extern msg_for_GPS GPS_send;
+
+/*illumination intensity message*/
+typedef struct
+{
+  uint8_t messageid;
+	char Lux[5];
+}msg_for_BH1750;
+extern msg_for_BH1750 BH1750_send;
 
 void nb_iot_entry(void);
 

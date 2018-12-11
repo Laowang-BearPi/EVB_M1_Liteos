@@ -94,6 +94,7 @@ int32_t nb_get_netstat(void);
 int nb_query_ip(void);
 int32_t nb_send_payload(const char* buf, int len);
 int32_t nb_check_csq(void);
+int32_t nb_get_csq(void);
 int32_t nb_send_psk(char* pskid, char* psk);
 int32_t nb_set_no_encrypt(void);
 int32_t nb_reboot(void);

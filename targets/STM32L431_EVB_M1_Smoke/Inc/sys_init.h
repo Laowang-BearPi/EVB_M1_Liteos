@@ -56,11 +56,10 @@
 //#include "hal_rng.h"
 #include "stm32l4xx_it.h"
 #include "dwt.h"
-#include "adc.h"
 #include "usart.h"
 #include "gpio.h"
 #include "oled.h"
-
+#include "adc.h"
 
 
 

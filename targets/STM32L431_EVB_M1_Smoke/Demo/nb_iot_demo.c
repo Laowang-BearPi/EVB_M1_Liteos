@@ -38,26 +38,34 @@
 #include "nb_iot/los_nb_api.h"
 #include "at_device/bc95.h"
 #endif
-msg_sys_type bc95_net_data;
-msg_for_SMOKE       SMOKE_send;
+
+msg_for_SMOKE   SMOKE_send;
 
 VOID data_collection_task(VOID)
 {
 	UINT32 uwRet = LOS_OK;
 	
-	short int Lux;   
+	short int Value;
+	short int MaxValue=1000;
+	SMOKE_send.index=1; 
 	MX_ADC1_Init();								//初始化传感器
-	OLED_ShowString(30,2,"Lux:",16);
+	OLED_ShowString(30,2,"Smoke:",16);
 	while (1)
   {
 
 		printf("This is data_collection_task !\r\n");
-////		//Lux=(int)Convert_BH1750();		//采集传感器数据
-////	  printf("\r\n******************************BH1750 Value is  %d\r\n",Lux);
-////		
-////		sprintf(BH1750_send.Lux, "%5d", Lux);	  //将传感器数据存入发送数据的结构体中
-//		
-//		OLED_ShowString(60,2,(uint8_t*)BH1750_send.Lux,16);
+		
+		SMOKE_send.CSQ=nb_get_csq();
+		printf("\r\n++++++++++++++++++++++CSQ is  %d\r\n",SMOKE_send.CSQ);
+		
+	  HAL_ADC_Start(&hadc1);	
+		HAL_ADC_PollForConversion(&hadc1, 50);
+		Value = HAL_ADC_GetValue(&hadc1);
+		printf("\r\n******************************MQ2 Value is  %d\r\n",Value);
+		sprintf(SMOKE_send.Value, "%4d", Value);
+		sprintf(SMOKE_send.MaxValue, "%4d", MaxValue);
+		
+		OLED_ShowString(60,2,(uint8_t*)SMOKE_send.Value,16);
 
 		uwRet=LOS_TaskDelay(1000);
 		if(uwRet !=LOS_OK)
@@ -89,8 +97,8 @@ VOID data_report_task(VOID)
 
 		while(1)
 	{
-
-		if(los_nb_report((const char*)(&BH1750_send),sizeof(BH1750_send))>=0)		//发送数据到平台	
+		
+		if(los_nb_report((const char*)(&SMOKE_send),sizeof(SMOKE_send))>=0)		//发送数据到平台	
 				printf("ocean_send_data OK!\n");                                                  //发生成功
 		else                                                                                  //发送失败
 			{

@@ -60,7 +60,6 @@ UINT32 g_TskHandle;
 
 
 
-
 VOID HardWare_Init(VOID)
 {
 	HAL_Init();
@@ -89,6 +88,10 @@ void user_hw_init(void)
 	OLED_ShowCHinese(81,0,4);
 	OLED_ShowCHinese(99,0,5);
 	OLED_ShowString(36,2,(uint8_t*)str,16);
+	LOS_HwiCreate(EXTI0_IRQn, 2,0,EXTI0_IRQHandler,NULL);
+	LOS_HwiCreate(EXTI1_IRQn, 3,0,EXTI1_IRQHandler,NULL);
+//	LOS_HwiCreate(EXTI2_IRQn, 4,0,EXTI2_IRQHandler,NULL);
+//	LOS_HwiCreate(EXTI3_IRQn, 5,0,EXTI3_IRQHandler,NULL);
 }
 
 

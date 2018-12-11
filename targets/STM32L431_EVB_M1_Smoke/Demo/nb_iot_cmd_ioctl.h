@@ -43,6 +43,15 @@
 #include <time.h>
 #include "at_frame/at_main.h"
 
+typedef struct
+{
+
+	char net_nmgr[30];
+
+}msg_sys_type;
+
+extern msg_sys_type bc95_net_data;
+
 int32_t nb_cmd_data_ioctl(void* arg, int8_t  * buf, int32_t len);
 int32_t OC_cmd_match(const char *buf, char* featurestr,int len);
 

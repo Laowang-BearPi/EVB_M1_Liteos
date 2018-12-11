@@ -175,11 +175,27 @@ int32_t nb_hw_detect(void)//"AT+CFUN?\r"
 {
     return at.cmd((int8_t*)AT_NB_hw_detect, strlen(AT_NB_hw_detect), "+CFUN:1", NULL,NULL);
 }
-
 int32_t nb_check_csq(void)
 {
     char *cmd = "AT+CSQ\r";
     return at.cmd((int8_t*)cmd, strlen(cmd), "+CSQ:", NULL,NULL);
+}
+int32_t nb_get_csq(void)
+{
+    char *cmd = "AT+CSQ\r";
+		int ret;
+		char* str = NULL;	
+		int csq = 0;
+		int rbuflen;
+		memset(rbuf, 0, AT_DATA_LEN);
+		ret = at.cmd((int8_t*)cmd, strlen(cmd), "+CSQ:", rbuf,&rbuflen);
+    if(ret < 0)
+        return -1;
+    str = strstr(rbuf,"+CSQ:");
+    if(str == NULL)
+        return -1;
+    sscanf(str,"+CSQ:%d,99",&csq);		
+    return csq;
 }
 
 int32_t nb_set_cdpserver(char* host, char* port)

@@ -35,6 +35,7 @@
 #include "nb_iot_cmd_ioctl.h"
 #include "sys_init.h"
 
+msg_sys_type bc95_net_data;
 
 int32_t nb_cmd_data_ioctl(void* arg, int8_t  * buf, int32_t len)
 {
@@ -52,13 +53,13 @@ int32_t nb_cmd_data_ioctl(void* arg, int8_t  * buf, int32_t len)
 				HexStrToStr((const unsigned char *)tmpbuf, (unsigned char *)bc95_net_data.net_nmgr,readlen*2);
     }
 				AT_LOG("cmd is:%s\n",bc95_net_data.net_nmgr);
-		if(strcmp(bc95_net_data.net_nmgr,"ON")==0) //开灯
+		if(strcmp(bc95_net_data.net_nmgr,"ON")==0) //开蜂鸣器
 			{	
-					HAL_GPIO_WritePin(Light_GPIO_Port,Light_Pin,GPIO_PIN_RESET);    // 输出低电平
+					HAL_GPIO_WritePin(Beep_GPIO_Port,Beep_Pin,GPIO_PIN_SET);    // 输出高电平
 			}
-		if(strcmp(bc95_net_data.net_nmgr,"OFF")==0) //关灯
+		if(strcmp(bc95_net_data.net_nmgr,"OFF")==0) //关蜂鸣器
 			{	
-					HAL_GPIO_WritePin(Light_GPIO_Port,Light_Pin,GPIO_PIN_SET);  // 输出高电平
+					HAL_GPIO_WritePin(Beep_GPIO_Port,Beep_Pin,GPIO_PIN_RESET);  // 输出低电平
 			}
 /*******************************END**********************************************/
 		return 0;

@@ -41,15 +41,8 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-/* Includes LiteOS------------------------------------------------------------------*/
+/* Includes ------------------------------------------------------------------*/
 
-#include "los_base.h"
-#include "los_config.h"
-#include "los_sys.h"
-#include "los_typedef.h"
-#include "los_task.ph"
-#include "los_event.ph"
-#include "los_event.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -58,8 +51,6 @@
 
 #define LED_Pin GPIO_PIN_13
 #define LED_GPIO_Port GPIOC
-#define Light_Pin GPIO_PIN_5
-#define Light_GPIO_Port GPIOA
 #define KEY1_Pin GPIO_PIN_0
 #define KEY1_GPIO_Port GPIOC
 #define KEY1_EXTI_IRQn EXTI0_IRQn
@@ -72,14 +63,16 @@
 #define KEY4_Pin GPIO_PIN_3
 #define KEY4_GPIO_Port GPIOC
 #define KEY4_EXTI_IRQn EXTI3_IRQn
+#define Light_Pin GPIO_PIN_5
+#define Light_GPIO_Port GPIOA
 #define MQ2_DO_Pin GPIO_PIN_6
 #define MQ2_DO_GPIO_Port GPIOA
 #define OLED_SCL_Pin GPIO_PIN_10
 #define OLED_SCL_GPIO_Port GPIOB
 #define OLED_SDA_Pin GPIO_PIN_11
 #define OLED_SDA_GPIO_Port GPIOB
-//#define DHT11_Pin GPIO_PIN_11
-//#define DHT11_GPIO_Port GPIOA
+#define DHT11_Pin GPIO_PIN_11
+#define DHT11_GPIO_Port GPIOA
 #define Beep_Pin GPIO_PIN_5
 #define Beep_GPIO_Port GPIOB
 
@@ -91,48 +84,6 @@
 /* #define USE_FULL_ASSERT    1U */
 
 /* USER CODE BEGIN Private defines */
-typedef struct
-{
-
-	char net_nmgr[30];
-
-}msg_sys_type;
-
-extern msg_sys_type bc95_net_data;
-
-
-/*temperature and humidity message*/
-typedef struct
-{
-	char temp[4];
-	char hum[4];	
-}msg_for_DHT11;
-extern msg_for_DHT11 DHT11_send;
-
-/***********smoke message********/
-typedef struct
-{
-	char index;
-	unsigned char CSQ;
-	char Value[4];
-	char MaxValue[4];		
-}msg_for_SMOKE;
-extern msg_for_SMOKE SMOKE_send;
-
-/**********GPS message***********/
-typedef struct
-{
-	char Latitude[8];
-	char Longitude[9];	
-}msg_for_GPS;
-extern msg_for_GPS GPS_send;
-
-/*illumination intensity message*/
-typedef struct
-{
-  char Lux[5];
-}msg_for_BH1750;
-extern msg_for_BH1750 BH1750_send;
 
 /* USER CODE END Private defines */
 
