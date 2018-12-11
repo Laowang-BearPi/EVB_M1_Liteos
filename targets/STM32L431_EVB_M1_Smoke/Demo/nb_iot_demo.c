@@ -49,7 +49,7 @@ VOID data_collection_task(VOID)
 	short int MaxValue=1000;
 	SMOKE_send.index=1; 
 	MX_ADC1_Init();								//初始化传感器
-	OLED_ShowString(30,2,"Smoke:",16);
+	OLED_ShowString(30,2,(uint8_t *)"Smoke:",16);
 	while (1)
   {
 
@@ -62,10 +62,10 @@ VOID data_collection_task(VOID)
 		HAL_ADC_PollForConversion(&hadc1, 50);
 		Value = HAL_ADC_GetValue(&hadc1);
 		printf("\r\n******************************MQ2 Value is  %d\r\n",Value);
-		sprintf(SMOKE_send.Value, "%4d", Value);
-		sprintf(SMOKE_send.MaxValue, "%4d", MaxValue);
+		OLED_ShowNum(72,2,Value,sizeof(Value)+1,16);
 		
-		OLED_ShowString(60,2,(uint8_t*)SMOKE_send.Value,16);
+		sprintf(SMOKE_send.Value, "%4d", Value);
+		sprintf(SMOKE_send.MaxValue, "%4d", MaxValue);	
 
 		uwRet=LOS_TaskDelay(1000);
 		if(uwRet !=LOS_OK)
