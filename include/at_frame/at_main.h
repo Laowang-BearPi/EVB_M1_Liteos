@@ -45,6 +45,7 @@
 
 /* MACRO DEFINE */
 #define AT_INTO
+#define AT_INTO
 #ifdef AT_INTO
 #define AT_LOG(fmt, arg...)  printf("[%lu][%s:%d][I]"fmt"\n", at_get_time(), __func__, __LINE__, ##arg)
 #else

@@ -43,6 +43,7 @@
 #define AT_NB_reboot    		"AT+NRB\r"
 #define AT_NB_hw_detect    		"AT+CFUN?\r"
 #define AT_NB_get_auto_connect  "AT+NCONFIG?\r"
+#define AT_NB_disable_auto_connect  "AT+NCONFIG=AUTOCONNECT,FALSE\r"
 #define AT_CMD_PREFIX           "\r\n+NNMI:"
 #define AT_DATAF_PREFIX         "+NSONMI:"
 #define CGATT                   "AT+CGATT?\r"
@@ -88,12 +89,18 @@ typedef struct _socket_info_t
 }socket_info;//struct to save socket info
 
 int str_to_hex(const char *bufin, int len, char *bufout);
+void HexStrToStr(const unsigned char *source, unsigned char *dest, int sourceLen);
 int32_t nb_set_cdpserver(char* host, char* port);
 int32_t nb_hw_detect(void);
 int32_t nb_get_netstat(void);
+int32_t nb_get_imei(char *imei);
+int32_t nb_get_nuestats(char *Signal);
 int nb_query_ip(void);
 int32_t nb_send_payload(const char* buf, int len);
+int32_t nb_coap_send(const char* buf, int len);
+int32_t nb_lwm2m_send(const char* buf, int len,char mode);
 int32_t nb_check_csq(void);
+int32_t nb_set_eDRX(char* PTW,char* eDRX);
 int32_t nb_get_csq(void);
 int32_t nb_send_psk(char* pskid, char* psk);
 int32_t nb_set_no_encrypt(void);

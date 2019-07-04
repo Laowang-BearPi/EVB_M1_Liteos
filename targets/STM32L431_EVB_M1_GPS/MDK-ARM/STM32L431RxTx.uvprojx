@@ -10,7 +10,7 @@
       <TargetName>STM32L431RxTx</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
+      <pCCUsed>5050041::5.06 update 4 (build 528)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32L431xx,USE_MBED_TLS,NOWITH_DTLS,MBEDTLS_CONFIG_FILE=&lt;los_mbedtls_config.h&gt;,LWM2M_LITTLE_ENDIAN,LWM2M_CLIENT_MODE,NDEBUG,WITH_AT_FRAMEWORK,NOUSE_ESP8266,USE_NB_NEUL95,HAL_RNG_MODULE_ENABLED</Define>
               <Undefine></Undefine>
-              <IncludePath>..\OS_CONFIG;../Drivers/STM32L4xx_HAL_Driver/Inc;../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Include;../Inc;..\..\..\include;..\..\..\include\osdepends\liteos;..\..\..\kernel\include;..\..\..\kernel\base\include;..\..\..\kernel\extended\include;..\..\..\arch\arm\arm-m\include;..\..\..\arch\arm\common\cmsis;..\Hardware\OLED;..\..\..\components\net\at_device\nb_bc95;..\Demo</IncludePath>
+              <IncludePath>..\OS_CONFIG;../Drivers/STM32L4xx_HAL_Driver/Inc;../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Include;../Inc;..\..\..\include;..\..\..\include\osdepends\liteos;..\..\..\kernel\include;..\..\..\kernel\base\include;..\..\..\kernel\extended\include;..\..\..\arch\arm\arm-m\include;..\..\..\arch\arm\common\cmsis;..\Hardware\OLED;..\..\..\components\net\at_device\nb_bc95;..\Demo;..\Hardware\GPS</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -709,6 +709,11 @@
               <FileName>oled.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Hardware\OLED\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>gps.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\GPS\gps.c</FilePath>
             </File>
           </Files>
         </Group>

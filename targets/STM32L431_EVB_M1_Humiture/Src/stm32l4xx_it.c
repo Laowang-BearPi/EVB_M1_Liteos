@@ -202,6 +202,7 @@ void EXTI0_IRQHandler(void)
   /* USER CODE BEGIN EXTI0_IRQn 0 */
 
   /* USER CODE END EXTI0_IRQn 0 */
+		printf("kkkkkkkkkkk");
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
 
@@ -293,6 +294,25 @@ void USART3_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  switch(GPIO_Pin)
+	{
+		case GPIO_PIN_0:
+			printf("This is F4\r\n");
+			break;
+		case GPIO_PIN_1:
+			printf("This is F3\r\n");
+			break;
+		case GPIO_PIN_2:
+			printf("This is F2\r\n");
+			break;
+		case GPIO_PIN_3:
+			printf("This is F1\r\n");
+			break;
+		default:
+			break;
+	}
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

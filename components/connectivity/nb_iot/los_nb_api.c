@@ -42,8 +42,6 @@ int los_nb_init(const int8_t* host, const int8_t* port, sec_param_s* psk)
 {
     int ret;
     int timecnt = 0;
-    //if(port == NULL)
-        //return -1;
     /*when used nb with agenttiny*/
     /*the following para is replaced by call nb_int()*/
     at_config at_user_conf = {
@@ -59,46 +57,41 @@ int los_nb_init(const int8_t* host, const int8_t* port, sec_param_s* psk)
     };
     
     at.init(&at_user_conf);
-
     nb_reboot();
     LOS_TaskDelay(2000);
     if(psk != NULL)//encryption v1.9
     {
         if(psk->setpsk)
             nb_send_psk(psk->pskid, psk->psk);
-        else
-            nb_set_no_encrypt();
-    }
 
+    }
+    else
+    nb_set_no_encrypt();
     while(1)
     {
         ret = nb_hw_detect();
         printf("call nb_hw_detect,ret is %d\n",ret);
         if(ret == AT_OK)
             break;
-        //LOS_TaskDelay(1000);
     }
-    //nb_get_auto_connect();
-    //nb_connect(NULL, NULL, NULL);
 
-	while(timecnt < 120)
-	{
-		ret = nb_get_netstat();
-		nb_check_csq();
+		while(timecnt < 120)
+		{
+			ret = nb_get_netstat();
+			nb_check_csq();
+			if(ret != AT_FAILED)
+			{
+				ret = nb_query_ip();
+				break;
+			}
+			timecnt++;
+		}
 		if(ret != AT_FAILED)
 		{
-			ret = nb_query_ip();
-			break;
+			nb_query_ip();
 		}
-		//LOS_TaskDelay(1000);
-		timecnt++;
-	}
-	if(ret != AT_FAILED)
-	{
-		nb_query_ip();
-	}
-	ret = nb_set_cdpserver((char *)host, (char *)port);
-    return ret;
+		ret = nb_set_cdpserver((char *)host, (char *)port);
+			return ret;
 }
 
 int los_nb_report(const char* buf, int len)

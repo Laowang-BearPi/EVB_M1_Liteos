@@ -90,8 +90,8 @@ void user_hw_init(void)
 	OLED_ShowString(36,2,(uint8_t*)str,16);
 	LOS_HwiCreate(EXTI0_IRQn, 2,0,EXTI0_IRQHandler,NULL);
 	LOS_HwiCreate(EXTI1_IRQn, 3,0,EXTI1_IRQHandler,NULL);
-//	LOS_HwiCreate(EXTI2_IRQn, 4,0,EXTI2_IRQHandler,NULL);
-//	LOS_HwiCreate(EXTI3_IRQn, 5,0,EXTI3_IRQHandler,NULL);
+	LOS_HwiCreate(EXTI2_IRQn, 4,0,EXTI2_IRQHandler,NULL);
+	LOS_HwiCreate(EXTI3_IRQn, 5,0,EXTI3_IRQHandler,NULL);
 }
 
 
@@ -109,7 +109,7 @@ VOID main_task(VOID)
     sec.psk = "d1e1be0c05ac5b8c78ce196412f0cdb0";
 #endif
     printf("\r\n=====================================================");
-    printf("\r\nSTEP1: Init NB Module( NB Init )");
+    printf("\r\nSTEP1: Init NB Module( NB 	Init )");
     printf("\r\n=====================================================\r\n");
 #if AT_DTLS
     los_nb_init((const int8_t*)"139.159.140.34",(const int8_t*)"5684",&sec);
